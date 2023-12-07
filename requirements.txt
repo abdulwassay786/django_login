@@ -12,3 +12,4 @@ crispy-bootstrap4
 # UI
 django-admin-argon-dashboard==1.0.16
 
+dj-database-url
