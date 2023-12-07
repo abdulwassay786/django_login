@@ -1,0 +1,86 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GovFinder</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<style>
+    th {
+        text-align: center;
+    }
+
+    .leadership-data td:nth-child(9) {
+        word-wrap: break-word !important;
+        max-width: 300px !important;
+
+    }
+
+    .textarea {
+        width: 180px;
+        height: 100px;
+        font-size: 16px;
+        resize: auto;
+        border: 1px solid grey;
+    }
+</style>
+
+<body>
+
+    {% block overlay %}
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    {% endblock overlay %}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+            <div class="card table_card">
+                <div class="filterDiv">
+                    <label for="hierarchyFilter">Filter by Hierarchy:</label>
+                    <select onchange="filterHierarchy()" id="hierarchyFilter">
+                        <!-- Options -->
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table id="leadership-table" class="leadership-table">
+                        <th>No.</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Department</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Link</th>
+                        <th>Description</th>
+                        <th>Hierarchy</th>
+                        <th>Feedback</th>
+                        
+                        <tbody id="leadership_data" class="leadership-data">
+                            <!-- Table rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    filterHierarchy()
+</script>
+
+</html>
+
+{% endblock content %}

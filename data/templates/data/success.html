@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<style>
+    .success_div{
+        margin: 50px auto;
+        width: 500px;
+        text-align: center;
+    }
+    .success_div h1{
+        font-size: 32px;
+    }
+</style>
+<head>
+    <title>Upload Successful</title>
+</head>
+<body>
+    {% block overlay %}
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    {% endblock overlay %}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card table_card">
+
+    <div class="success_div">
+        <h1>Upload Successful</h1>
+        <p>Your CSV file has been successfully uploaded and processed.</p>
+    </div>
+
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+{% endblock content %}
