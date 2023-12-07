@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import io
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -97,7 +98,14 @@ WSGI_APPLICATION = "web_scraping.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {"default": env.db()}
+# DATABASES = {"default": env.db()}
+# Parse database connection from DATABASE_URL environment variable
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+
+# Ensure connection options are set for SSL
+if 'OPTIONS' not in DATABASES['default']:
+    DATABASES['default']['OPTIONS'] = {}
+DATABASES['default']['OPTIONS']['sslmode'] = 'require'
 
 # DATABASES = {
 #     'default': {
